@@ -1,0 +1,498 @@
+<!-- udacimak v1.4.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>练习：数据分析过程</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>理解数据分析过程</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. 数据分析师解决的问题.html">01. 数据分析师解决的问题</a>
+    </li>
+    <li class="">
+      <a href="02. 数据分析过程概述.html">02. 数据分析过程概述</a>
+    </li>
+    <li class="">
+      <a href="03. 练习：数据分析过程.html">03. 练习：数据分析过程</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">03. 练习：数据分析过程</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3></h3>
+  <div>
+  <h1 id="数据分析过程练习">数据分析过程练习</h1>
+<p>让我们通过对数据分析过程的每一步提问，来了解所有步骤。我们将使用来自 <a href="https://www.kaggle.com/c/bike-sharing-demand" target="_blank">Kaggle 的单车共享需求</a> 竞赛的数据。此数据集给出了自华盛顿特区实施“首都共享单车”计划以来的两年，自行车的每小时租金数据。下面是此数据前 5 行的屏幕截图。<em>注意：</em> 此数据集做了轻微修改。</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/5.dap-quiz-img1.png" alt="*点击图片以放大！*" class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p><em>点击图片以放大！</em></p>
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>使用下表来帮助你回答第一个问题。每个特征都是数据集中的一列。</p>
+<table>
+<thead>
+<tr>
+<th id="__特征__"><strong>特征</strong></th>
+<th id="__描述__"><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>日期时间 datetime</td>
+<td>小时 + 时间戳</td>
+</tr>
+<tr>
+<td>季节 season</td>
+<td>1 = 春季、2 = 夏季、3 = 秋季、4 = 冬季</td>
+</tr>
+<tr>
+<td>假期 holiday</td>
+<td>该天是否为假日</td>
+</tr>
+<tr>
+<td>工作日 workingday</td>
+<td>该天是否既不是周末，也不是假日</td>
+</tr>
+<tr>
+<td>天气 weather*</td>
+<td>1、2、3、4（参见下面的描述）</td>
+</tr>
+<tr>
+<td>温度 temp</td>
+<td>摄氏度温度</td>
+</tr>
+<tr>
+<td>环境温度 atemp</td>
+<td>"感觉"温度（摄氏度）</td>
+</tr>
+<tr>
+<td>湿度 humidity</td>
+<td>相对湿度</td>
+</tr>
+<tr>
+<td>风速 windspeed</td>
+<td>风速</td>
+</tr>
+<tr>
+<td>游客 casual</td>
+<td>非注册用户使用共享单车的数量</td>
+</tr>
+<tr>
+<td>会员 registered</td>
+<td>注册用户使用共享单车的数量</td>
+</tr>
+<tr>
+<td>总计 count</td>
+<td>总使用次数</td>
+</tr>
+</tbody>
+</table>
+<h5 id="-天气特征关键字">* 天气特征关键字</h5>
+<p>1 = 晴朗、少云、局部多云  </p>
+<p>2 = 薄雾 + 多云、薄雾 + 碎云、薄雾 + 少云、薄雾  </p>
+<p>3 = 小雪、小雨 + 雷雨 + 散云、小雨 + 散云 </p>
+<p>4 = 大雨 + 冰粒 + 雷雨 + 薄雾、雪 + 大雾</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3><p>提问步骤</p></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><h3 id="提问步骤">提问步骤</h3>
+<p>根据上面给出的有可能影响每小时租用自行车数量的变量数据，可以提出哪些相关问题？（可多选）</p></legend>
+    </fieldset>
+
+    <div>
+      <input type="checkbox" value="a1501516549234" name="431541" id="a1501516549234">
+      <label for="a1501516549234"><p>哪些属性在预测租用自行车的数量方面最为重要？</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1501516626815" name="431541" id="a1501516626815">
+      <label for="a1501516626815"><p>哪种类型的自行车最常租用？</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1501516641548" name="431541" id="a1501516641548">
+      <label for="a1501516641548"><p>如果目标是使整个星期的租用数量呈现平稳状态，共享单车公司应该在一周中的哪天开展促销活动？</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1501516659937" name="431541" id="a1501516659937">
+      <label for="a1501516659937"><p>给定车站是否应该提供更多自行车，以最大化利润？</p></label>
+    </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    <ul>
+      <li>哪些属性在预测租用自行车的数量方面最为重要？</li>
+      <li>如果目标是使整个星期的租用数量呈现平稳状态，共享单车公司应该在一周中的哪天开展促销活动？</li>
+  </ul>
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/5.dap-quiz-img2.png" alt="*对下一个问题有用的每个列的统计数据*" class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p><em>对下一个问题有用的每个列的统计数据</em></p>
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>25%、50%、75%指的是四分位数（Quartile）。</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/screen-shot-2017-09-08-at-4.51.27-am.png" alt="*\# 每个列的非空值和数据类型*" class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p><em># 每个列的非空值和数据类型</em></p>
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>下面是对上面这幅图含义的详细解读，理解此图会对你完成和理解实战项目有帮助。</p>
+<p>在此图中，有4列是 float - 浮点型，7列是 int - 整型，1列是object - 对象。其中datetime经过打印查看，确定类型为 str - 字符串。</p>
+<p>Python 中的数据类型会在“第三天：Python 数字和字符串”中有更加详细的解释。</p>
+<p><img src="media/1532955718978.jpg"></p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3><p>整理步骤</p></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><h3 id="整理步骤">整理步骤</h3>
+<p>在继续分析前，可以看到此 Kaggle 单车共享数据有何需要解决的潜在问题？（可多选）</p></legend>
+    </fieldset>
+
+    <div>
+      <input type="checkbox" value="a1501533105789" name="431544" id="a1501533105789">
+      <label for="a1501533105789"><p>日期未采用日期格式</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1501533138708" name="431544" id="a1501533138708">
+      <label for="a1501533138708"><p>一些值缺失</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1501533144642" name="431544" id="a1501533144642">
+      <label for="a1501533144642"><p>温度值远远超出了地球上的现实范围</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1501533153236" name="431544" id="a1501533153236">
+      <label for="a1501533153236"><p>天气不能用数值表示</p></label>
+    </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    <ul>
+      <li>日期未采用日期格式</li>
+      <li>一些值缺失</li>
+      <li>温度值远远超出了地球上的现实范围</li>
+  </ul>
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/5.dap-quiz-img5.png" alt="*租赁的自行车数量与星期几、温度和湿度的散点图*" class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p><em>租赁的自行车数量与星期几、温度和湿度的散点图</em></p>
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3><p>探索步骤</p></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><h3 id="探索步骤">探索步骤</h3>
+<p>根据这些散点图，这三个特征中的哪一个似乎最有助于预测计数？（提示：可以考虑下 x 轴数据和 y 轴数据的关系，如果有明显的相关性，比如 y 随 x 的增大而变大或减小，则说明有助于预测；反之，如果数据并无明显趋势，则说明无法凭借这个特征预测）</p>
+<p>名词解释：<br />
+Day of week 星期几<br />
+Temp 温度<br />
+Humidity 湿度</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1501533301786" name="431546" id="a1501533301786">
+        <label for="a1501533301786"><p>星期几</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1501533318549" name="431546" id="a1501533318549">
+        <label for="a1501533318549"><p>温度</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1501533323837" name="431546" id="a1501533323837">
+        <label for="a1501533323837"><p>湿度</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    温度
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <figure class="figure">
+    <img src="img/5.dap-quiz-img6.png" alt="*计数与温度散点图，及下一个问题的最佳匹配直线*" class="img img-fluid">
+    <figcaption class="figure-caption">
+      <p><em>计数与温度散点图，及下一个问题的最佳匹配直线</em></p>
+    </figcaption>
+  </figure>
+</div>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3><p>得出结论步骤</p></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><h3 id="得出结论步骤">得出结论步骤</h3>
+<p>根据这个自行车租赁与温度关系回归图表，如果温度从 2 摄氏度升至 30 摄氏度，你认为会有多少额外的自行车被租用？</p></legend>
+    </fieldset>
+
+      <div>
+        <input type="radio" value="a1501533388583" name="431548" id="a1501533388583">
+        <label for="a1501533388583"><p>50 辆自行车</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1501533415707" name="431548" id="a1501533415707">
+        <label for="a1501533415707"><p>250 辆自行车</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1501533419906" name="431548" id="a1501533419906">
+        <label for="a1501533419906"><p>500 辆自行车</p></label>
+      </div>
+      <div>
+        <input type="radio" value="a1501533422620" name="431548" id="a1501533422620">
+        <label for="a1501533422620"><p>550 辆自行车</p></label>
+      </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    250 辆自行车
+  </details>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3><p>传达结果步骤</p></h3>
+  <div>
+  <form>
+    <fieldset>
+      <legend><h3 id="传达结果步骤">传达结果步骤</h3>
+<p>下面的哪种方法能够最有效地传递你从共享单车数据中得出的结论？</p></legend>
+    </fieldset>
+
+    <div>
+      <input type="checkbox" value="a1501533456153" name="431549" id="a1501533456153">
+      <label for="a1501533456153"><p>温度与湿度等特征的相关性散点图</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1501533488282" name="431549" id="a1501533488282">
+      <label for="a1501533488282"><p>一份书面报告，详细说明了预测自行车租赁量的最重要变量</p></label>
+    </div>
+    <div>
+      <input type="checkbox" value="a1501533499201" name="431549" id="a1501533499201">
+      <label for="a1501533499201"><p>不同温度的回归方程图</p></label>
+    </div>
+  </form>
+
+  <details>
+    <summary><strong>SOLUTION:</strong></summary>
+    <ul>
+      <li>一份书面报告，详细说明了预测自行车租赁量的最重要变量</li>
+  </ul>
+  </details>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+
+          <div class="col-12">
+            <p class="text-right">
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.4.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('03. 练习：数据分析过程')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+</body>
+
+</html>

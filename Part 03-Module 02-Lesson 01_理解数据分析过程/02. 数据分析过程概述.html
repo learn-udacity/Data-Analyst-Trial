@@ -1,0 +1,202 @@
+<!-- udacimak v1.4.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数据分析过程概述</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/plyr.css">
+  <link rel="stylesheet" href="../assets/css/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="shortcut icon" type="image/png" href="../assets/img/udacimak.png" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>理解数据分析过程</h3>
+  </div>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled components">
+    <li class="">
+      <a href="01. 数据分析师解决的问题.html">01. 数据分析师解决的问题</a>
+    </li>
+    <li class="">
+      <a href="02. 数据分析过程概述.html">02. 数据分析过程概述</a>
+    </li>
+    <li class="">
+      <a href="03. 练习：数据分析过程.html">03. 练习：数据分析过程</a>
+    </li>
+  </ul>
+
+  <ul class="sidebar-list list-unstyled CTAs">
+    <li>
+      <a href="../index.html" class="article">Back to Home</a>
+    </li>
+  </ul>
+</nav>
+
+    <div id="content">
+      <header class="container-fluild header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="align-items-middle">
+                <button type="button" id="sidebarCollapse" class="btn btn-toggle-sidebar">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+
+                <h1 style="display: inline-block">02. 数据分析过程概述</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-atom">
+  <h3><p>数据分析过程 (DAP) 概述</p></h3>
+  <video controls>
+  <source src="02. 数据分析过程 (DAP) 概述-qdV4sifMmWI.mp4" type="video/mp4">
+
+  <track default="false" kind="subtitles" srclang="ar" src="02. 数据分析过程 (DAP) 概述-qdV4sifMmWI.ar.vtt" label="ar">
+  <track default="true" kind="subtitles" srclang="en" src="02. 数据分析过程 (DAP) 概述-qdV4sifMmWI.en.vtt" label="en">
+  <track default="false" kind="subtitles" srclang="BR" src="02. 数据分析过程 (DAP) 概述-qdV4sifMmWI.pt-BR.vtt" label="BR">
+  <track default="false" kind="subtitles" srclang="CN" src="02. 数据分析过程 (DAP) 概述-qdV4sifMmWI.zh-CN.vtt" label="CN">
+</video>
+
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>我们将数据分析过程组织为五个步骤：提问、整理、探索、得出结论和传达结果。以下是关键要点的概述，但你可以选择跳过。我们将在后面的部分中演练每一步，所以你将很快熟悉整个过程。</p>
+<h4 id="第-1-步：提问">第 1 步：提问</h4>
+<p>你要么获取一批数据，然后根据它提问，要么先提问，然后根据问题收集数据。在这两种情况下，好的问题可以帮助你将精力集中在数据的相关部分，并帮助你得出有洞察力的分析。</p>
+<h4 id="第-2-步：整理数据">第 2 步：整理数据</h4>
+<p>你通过三步来获得所需的数据：收集，评估，清理。你收集所需的数据来回答你的问题，评估你的数据来识别数据质量或结构中的任何问题，并通过修改、替换或删除数据来清理数据，以确保你的数据集具有最高质量和尽可能结构化。</p>
+<h4 id="第-3-步：执行-eda（探索性数据分析）">第 3 步：执行 EDA（探索性数据分析）</h4>
+<p>你可以探索并扩充数据，以最大限度地发挥你的数据分析、可视化和模型构建的潜力。探索数据涉及在数据中查找模式，可视化数据中的关系，并对你正在使用的数据建立直觉。经过探索后，你可以删除异常值，并从数据中创建更好的特征，这称为特征工程。</p>
+<h4 id="第-4-步：得出结论（或甚至是做出预测）">第 4 步：得出结论（或甚至是做出预测）</h4>
+<p>这一步通常使用机器学习或推理性统计来完成，不在本课程范围内，本课的重点是使用描述性统计得出结论。</p>
+<h4 id="第-5-步：传达结果">第 5 步：传达结果</h4>
+<p>你通常需要证明你发现的见解及传达意义。或者，如果你的最终目标是构建系统，则通常需要分享构建的结果，解释你得出设计结论的方式，并报告该系统的性能。传达结果的方法有多种：报告、幻灯片、博客帖子、电子邮件、演示文稿，甚至对话。数据可视化总会给你呈现很大的价值。</p>
+<p>在使用 Python 对真实数据集执行每个步骤之前，让我们来熟悉每一步！</p>
+</div>
+
+</div>
+<div class="divider"></div><div class="ud-atom">
+  <h3></h3>
+  <div>
+  <p>Juno 讲师在3分59秒提到的统计学的课程在 “数据分析（入门）纳米学位” 中，机器学习的课程在 “机器学习工程师纳米学位” 和 “数据科学家纳米学位” 第一学期中。</p>
+</div>
+
+</div>
+<div class="divider"></div>
+          </div>
+
+          <div class="col-12">
+            <p class="text-right">
+              <a href="03. 练习：数据分析过程.html" class="btn btn-outline-primary mt-4" role="button">Next Concept</a>
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center">
+                <a href="https://github.com/udacimak/udacimak#readme" target="_blank">udacimak v1.4.0</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+
+  <script src="../assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../assets/js/plyr.polyfilled.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="../assets/js/katex.min.js"></script>
+  <script>
+    // Initialize Plyr video players
+    const players = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+
+    // render math equations
+    let elMath = document.getElementsByClassName('mathquill');
+    for (let i = 0, len = elMath.length; i < len; i += 1) {
+      const el = elMath[i];
+
+      katex.render(el.textContent, el, {
+        throwOnError: false
+      });
+    }
+
+    // this hack will make sure Bootstrap tabs work when using Handlebars
+    if ($('#question-tabs').length && $('#user-answer-tabs').length) {
+      $("#question-tabs a.nav-link").on('click', function () {
+        $("#question-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+      $("#user-answer-tabs a.nav-link").on('click', function () {
+        $("#user-answer-tab-contents .tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    } else {
+      $("a.nav-link").on('click', function () {
+        $(".tab-pane").hide();
+        $($(this).attr("href")).show();
+      });
+    }
+
+    // side bar events
+    $(document).ready(function () {
+      $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+      });
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        $('.collapse.in').toggleClass('in');
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+
+      // scroll to first video on page loading
+      if ($('video').length) {
+        $('html,body').animate({ scrollTop: $('div.plyr').prev().offset().top});
+      }
+
+      // auto play first video: this may not work with chrome/safari due to autoplay policy
+      if (players && players.length > 0) {
+        players[0].play();
+      }
+
+      // scroll sidebar to current concept
+      const currentInSideBar = $( "ul.sidebar-list.components li a:contains('02. 数据分析过程概述')" )
+      currentInSideBar.css( "text-decoration", "underline" );
+      $("#sidebar").mCustomScrollbar('scrollTo', currentInSideBar);
+    });
+  </script>
+</body>
+
+</html>
